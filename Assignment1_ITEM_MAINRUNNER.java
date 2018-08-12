@@ -20,14 +20,27 @@ getItemsInStock()
 Arguments: None
 Returns: A list of items (type List) which have a quantity_in_stock greater than 0*/
 
+
+
 package week7_A1_JDBC_Exercises_1;
+
+import java.sql.SQLException;
 
 public class Assignment1_ITEM_MAINRUNNER {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
+
+		ItemDAO itemDAO = new ItemDAO();
+		Item item = itemDAO.getItemById(4);
+			String searchResult = "ID : " + item.getId() + " | Item Name : " + 
+					item.getName() + " | Quantitity : " + item.getQuantity_in_stock() + 
+					" | Price : " + item.getPrice();
+		System.out.println(searchResult);
 		
-		
-		
+		//NEED TO CALL THIS BETTER WITH OUT getting bugged from prior method
+		Item greater item = itemDAO.getItemById(4);
+		getItemsCostingGreaterThan(5);
+
 		
 	}
 

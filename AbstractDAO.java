@@ -2,19 +2,15 @@ package week7_A1_JDBC_Exercises_1;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
-public abstract class Abstract_Connection {
-	protected Connection conn;
-	protected PreparedStatement ps = null;
-	protected ResultSet rs = null;
+abstract class AbstractDAO {
+	protected static Connection conn;
 	
-	public void getConnection() {
+	public static Connection getConnection() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-			String user = "c##adamjdbc";
+			String user = "C##ADAMJDBC";
 			String pass = "password";
 			
 			conn = DriverManager.getConnection(url, user, pass);
@@ -22,9 +18,11 @@ public abstract class Abstract_Connection {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		return conn;
+		
 	}
 	
-	public void closeConnection() {
+	public static void closeConnection() {
 		try {
 			conn.close();
 		} catch(Exception e) {}
