@@ -37,9 +37,9 @@ public class Assignment1_ITEM_MAINRUNNER {
 					" | Price : " + item.getPrice();
 		System.out.println(searchResult);
 		
-		//NEED TO CALL THIS BETTER WITH OUT getting bugged from prior method
-		Item greater item = itemDAO.getItemById(4);
-		getItemsCostingGreaterThan(5);
+//		NEED TO CALL THIS BETTER WITH OUT getting bugged from prior method
+//		Item greaterItem = itemDAO.getItemById(4);
+//		getItemsCostingGreaterThan(5);
 
 		
 	}
