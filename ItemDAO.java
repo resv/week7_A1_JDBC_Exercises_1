@@ -49,13 +49,12 @@ public class ItemDAO extends AbstractDAO{
 		return item;
 	}
 
-	List<Item> getItemsCostingGreaterThan(double price) {
+	List<Item> getItemsCostingGreaterThan(double price) throws SQLException {
 		List<Item> arr = new ArrayList<>();
 		getConnection();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet result = null;
-		Item item = new Item();
 		
 		try {
 			conn = AbstractDAO.getConnection();
@@ -65,10 +64,8 @@ public class ItemDAO extends AbstractDAO{
 			ps.setDouble(1, price);
 			result = ps.executeQuery();
 			
-			// NEED TO USE BETTER QUERY, AND CHECKER FOR PRICE ABOVE THIS AND BELOW THIS
-			
 			while (result.next()) {
-				
+				Item item = new Item();
 				item.setId(result.getInt(1));
 				item.setName(result.getString(2));
 				item.setQuantity_in_stock(result.getInt(3));

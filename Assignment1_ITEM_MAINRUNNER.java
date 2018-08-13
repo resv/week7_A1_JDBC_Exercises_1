@@ -25,11 +25,17 @@ Returns: A list of items (type List) which have a quantity_in_stock greater than
 package week7_A1_JDBC_Exercises_1;
 
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.List;
 
 public class Assignment1_ITEM_MAINRUNNER {
 
 	public static void main(String[] args) throws SQLException {
 
+		
+	//QUESTION 1 OF 3
+		System.out.println("--------QUESTION 1 of 3--------\r\n");
+		
 		ItemDAO itemDAO = new ItemDAO();
 		Item item = itemDAO.getItemById(4);
 			
@@ -38,10 +44,21 @@ public class Assignment1_ITEM_MAINRUNNER {
 					" | Price : " + item.getPrice();
 		
 		System.out.println(searchResult);
+	
+	//QUESTION 2 of 3
+		System.out.println("\r\n--------QUESTION 2 of 3--------\r\n");
 		
-//		NEED TO CALL THIS BETTER WITH OUT getting bugged from prior method
-//		Item greaterItem = itemDAO.getItemById(4);
-//		getItemsCostingGreaterThan(5);
+		ItemDAO itemDAO2 = new ItemDAO();
+		List<Item> item2 = itemDAO2.getItemsCostingGreaterThan(2);
+		
+		for (Item elements : item2) {
+			System.out.println("ID : " + elements.getId() + " | Item Name : " + 
+					elements.getName() + " | Quantitity : " + elements.getQuantity_in_stock() + 
+					" | Price : " + elements.getPrice());
+		}
+		
+//		System.out.println(searchResult2);
+		
 
 		
 	}
