@@ -32,9 +32,11 @@ public class Assignment1_ITEM_MAINRUNNER {
 
 		ItemDAO itemDAO = new ItemDAO();
 		Item item = itemDAO.getItemById(4);
-			String searchResult = "ID : " + item.getId() + " | Item Name : " + 
+			
+		String searchResult = "ID : " + item.getId() + " | Item Name : " + 
 					item.getName() + " | Quantitity : " + item.getQuantity_in_stock() + 
 					" | Price : " + item.getPrice();
+		
 		System.out.println(searchResult);
 		
 //		NEED TO CALL THIS BETTER WITH OUT getting bugged from prior method
